@@ -189,21 +189,17 @@ for i in range(1, 10):
 
  copy = getBoardCopy(board)
 
-115.         if isSpaceFree(copy, i):
+if isSpaceFree(copy, i):
+  makeMove(copy, playerLetter, i)
 
-116.             makeMove(copy, playerLetter, i)
+if isWinner(copy, playerLetter):
+return i
 
-117.             if isWinner(copy, playerLetter):
+  # Try to take one of the corners, if they are free.
 
-118.                 return i
+ move = chooseRandomMoveFromList(board, [1, 3, 7, 9])
 
-119.
-
-120.     # Try to take one of the corners, if they are free.
-
-121.     move = chooseRandomMoveFromList(board, [1, 3, 7, 9])
-
-122.     if move != None:
+  if move != None:
 
 123.         return move
 
